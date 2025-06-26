@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Student_Learning_Tracker
 {
@@ -107,11 +108,11 @@ namespace Student_Learning_Tracker
                 return;
             }
 
-            // Average score
+            
             double average = studentList.Average(s => s.marks);
             Console.WriteLine($"Average Marks: {average}");
 
-            // Top scorer
+           
             double topScore = studentList.Max(s => s.marks);
             var topScorers = studentList.Where(s => s.marks == topScore).ToList();
             Console.WriteLine("Top Scorer(s):");
@@ -120,7 +121,7 @@ namespace Student_Learning_Tracker
                 Console.WriteLine($"ID: {stu.studentID}, Name: {stu.studentName}, Marks: {stu.marks}");
             }
 
-            // Failed students
+           
             var failedStudents = studentList.Where(s => s.marks < passingMarks).ToList();
             if (failedStudents.Count == 0)
             {
@@ -134,6 +135,29 @@ namespace Student_Learning_Tracker
                     Console.WriteLine($"ID: {stu.studentID}, Name: {stu.studentName}, Marks: {stu.marks}");
                 }
             }
+        }
+
+        public static async Task SaveProgressToCsvAsync(List<StudentDetials> studentList, string filePath)
+        {
+
+            if (studentList == null || studentList.Count == 0)
+            {
+                Console.WriteLine("No student details available to save.");
+                return;
+            }
+
+            var lines = new List<string>
+            {
+                "StudentID,StudentName,Marks,AverageMarks"
+            };
+
+            foreach (var stu in studentList)
+            {
+                lines.Add($"{stu.studentID},{stu.studentName},{stu.marks},{stu.averageMarks}");
+            }
+
+            await File.WriteAllLinesAsync(filePath, lines);
+            Console.WriteLine($"Student progress saved to {filePath}");
         }
     }
 }

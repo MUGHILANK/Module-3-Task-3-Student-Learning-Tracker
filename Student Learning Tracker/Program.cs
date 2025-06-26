@@ -20,7 +20,7 @@ namespace Student_Learning_Tracker
                 Console.WriteLine("2. Display Student Details");
                 Console.WriteLine("3. Calculate Average Marks");
                 Console.WriteLine("4. Analyze Test Scores");
-                
+                Console.WriteLine("5. Save Student Progress");
                 Console.WriteLine("7. Exit");
                 Console.Write("Enter your choice (1-7): ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -40,7 +40,11 @@ namespace Student_Learning_Tracker
                     case 4:
                         StudentDetials.AnalyzeTestScores(studentList);
                         break;
-                    
+                    case 5:
+                        Console.Write("Enter file path to save CSV: ");
+                        string filePath= "D:\\Module 3 Task\\Student Learning Tracker\\Student Learning Tracker\\SOT.txt";
+                        await StudentDetials.SaveProgressToCsvAsync(studentList, filePath);
+                        break;
                     case 7:
                         Console.WriteLine("Exiting the program.");
                         return;
@@ -52,62 +56,3 @@ namespace Student_Learning_Tracker
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//case 5:
-//    Console.Write("Enter quiz questions file path: ");
-//    string questionsPath = Console.ReadLine();
-//    quizQuestions = await QuizManager.LoadQuestionsAsync(questionsPath);
-//    Console.WriteLine($"Loaded {quizQuestions.Count} questions.");
-//    break;
-//case 6:
-//    Console.Write("Enter results file path: ");
-//    string resultsPath = Console.ReadLine();
-//    Console.Write("Enter quiz result (e.g., StudentID: 1, Score: 80): ");
-//    string result = Console.ReadLine();
-//    QuizManager.SubmitQuizResultsInBackground(resultsPath, result);
-//    break;
-
-
-//    Console.WriteLine("5. Load Quiz Questions (Async)");
-//    Console.WriteLine("6. Submit Quiz Results (Background)");

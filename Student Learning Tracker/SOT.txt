@@ -1,0 +1,4 @@
+StudentID,StudentName,Marks,AverageMarks
+101,lokujy,450,90
+102,kjhy,451,90'2
+103,jyhgth,321,64'2
