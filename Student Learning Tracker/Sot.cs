@@ -100,7 +100,7 @@ namespace Student_Learning_Tracker
             }
         }
 
-        public static void AnalyzeTestScores(List<StudentDetials> studentList, double passingMarks = 250)
+        public static void AnalyzeTestScores(List<StudentDetials> studentList)
         {
             if (studentList == null || studentList.Count == 0)
             {
@@ -121,7 +121,8 @@ namespace Student_Learning_Tracker
                 Console.WriteLine($"ID: {stu.studentID}, Name: {stu.studentName}, Marks: {stu.marks}");
             }
 
-           
+
+            double passingMarks = 250
             var failedStudents = studentList.Where(s => s.marks < passingMarks).ToList();
             if (failedStudents.Count == 0)
             {
