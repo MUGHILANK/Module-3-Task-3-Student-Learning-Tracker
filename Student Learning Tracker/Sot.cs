@@ -122,7 +122,7 @@ namespace Student_Learning_Tracker
             }
 
 
-            double passingMarks = 250
+            double passingMarks = 250;
             var failedStudents = studentList.Where(s => s.marks < passingMarks).ToList();
             if (failedStudents.Count == 0)
             {
