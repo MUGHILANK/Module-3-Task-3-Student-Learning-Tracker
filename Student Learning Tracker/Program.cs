@@ -17,12 +17,12 @@ namespace Student_Learning_Tracker
             {
                 Console.WriteLine("========== Student Learning Tracker ==========");
                 Console.WriteLine("1. Add Student Details");
-                Console.WriteLine("2. Display Student Details");
-                Console.WriteLine("3. Calculate Average Marks");
-                Console.WriteLine("4. Analyze Test Scores");
-                Console.WriteLine("5. Save Student Progress");
-                Console.WriteLine("7. Exit");
-                Console.Write("Enter your choice (1-7): ");
+                //Console.WriteLine("2. Display Student Details");
+                //Console.WriteLine("3. Calculate Average Marks");
+                //Console.WriteLine("4. Analyze Test Scores");
+                //Console.WriteLine("5. Save Student Progress");
+                //Console.WriteLine("7. Exit");
+                //Console.Write("Enter your choice (1-7): ");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
                 switch (choice)
